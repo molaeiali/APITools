@@ -1,7 +1,7 @@
 # APITools
 Some classes to work with RESTFul APIs Easyly
 
-#Usage
+# Usage
 In build.gradle file add these lines
 ```
 repositories {
@@ -14,4 +14,4 @@ dependencies {
     compile 'com.github.molaeiali:apitools:v1.0'
 }
 ```
-In your project Create a class that extends APIManager, make it singleton, if you want add additional headers in requests add them in defaultHeaders List in your class constructor;
+In your project Create a class that extends **APIManager**, make it singleton, if you want add additional headers in requests add them in defaultHeaders List in your class constructor;
