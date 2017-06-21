@@ -1,5 +1,5 @@
 # APITools
-Some classes to work with RESTFul APIs Easyly
+Some classes to work with RESTFul APIs easily
 
 # Usage
 In build.gradle file add these lines
