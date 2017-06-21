@@ -20,7 +20,7 @@ import java.util.List;
 import javax.net.ssl.SSLHandshakeException;
 
 
-public class APITools {
+class APITools {
 
     private APITools(){
 
@@ -163,11 +163,11 @@ public class APITools {
         return string;
     }
 
-    public static void generalAsyncTask(Activity activity, List<Header> headers, String url, AsyncWorks asyncWorks) {
+    static void generalAsyncTask(Activity activity, List<Header> headers, String url, AsyncWorks asyncWorks) {
         new GeneralAsyncTask(activity, headers, asyncWorks, null).execute(url);
     }
 
-    public static void generalAsyncTask(Activity activity, List<Header> headers, String url, JSONObject jsonObject, AsyncWorks asyncWorks) {
+    static void generalAsyncTask(Activity activity, List<Header> headers, String url, JSONObject jsonObject, AsyncWorks asyncWorks) {
         new GeneralAsyncTask(activity, headers, asyncWorks, jsonObject).execute(url);
     }
 
