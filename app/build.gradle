@@ -30,7 +30,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.github.molaeiali:apitools:v1.0.1'
-//    compile project(":api");
+//    compile 'com.github.molaeiali:apitools:v1.0.1'
+    compile project(":api");
     testCompile 'junit:junit:4.12'
+    compile 'com.wang.avi:library:2.1.3'
 }

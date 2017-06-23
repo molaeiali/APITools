@@ -163,12 +163,12 @@ class APITools {
         return string;
     }
 
-    static void generalAsyncTask(Activity activity, List<Header> headers, String url, AsyncWorks asyncWorks) {
-        new GeneralAsyncTask(activity, headers, asyncWorks, null).execute(url);
+    static void generalAsyncTask(Activity activity, List<Header> headers, String url, AsyncWorks asyncWorks,Loading loading) {
+        new GeneralAsyncTask(activity, headers, asyncWorks, null,loading).execute(url);
     }
 
-    static void generalAsyncTask(Activity activity, List<Header> headers, String url, JSONObject jsonObject, AsyncWorks asyncWorks) {
-        new GeneralAsyncTask(activity, headers, asyncWorks, jsonObject).execute(url);
+    static void generalAsyncTask(Activity activity, List<Header> headers, String url, JSONObject jsonObject, AsyncWorks asyncWorks, Loading loading) {
+        new GeneralAsyncTask(activity, headers, asyncWorks, jsonObject,loading).execute(url);
     }
 
 
@@ -177,12 +177,13 @@ class APITools {
         private JSONObject jsonObject;
         private Activity activity;
         private List<Header> headers;
-
-        GeneralAsyncTask(Activity activity, List<Header> headers, AsyncWorks asyncWorks, JSONObject jsonObject) {
+        private Loading loading;
+        GeneralAsyncTask(Activity activity, List<Header> headers, AsyncWorks asyncWorks, JSONObject jsonObject,Loading loading) {
             this.asyncWorks = asyncWorks;
             this.jsonObject = jsonObject;
             this.activity = activity;
             this.headers = headers;
+            this.loading = loading;
         }
 
         private boolean hasProtocol(String url){
@@ -210,11 +211,15 @@ class APITools {
                 return;
             }
             asyncWorks.postExecute(gotJSON);
+            if(loading != null)
+                loading.stop();
         }
 
         @Override
         protected void onPreExecute() {
             asyncWorks.preExecute();
+            if(loading != null)
+                loading.start();
         }
     }
 }
